@@ -37,7 +37,7 @@ spec:
       terminationGracePeriodSeconds: 120
       containers:
       - name: luigi
-        image: {{ default .Values.global.image.registry .Values.luigi.image.registry }}/{{ include "safeline.luigi.image.repository" . }}:{{ default .Chart.AppVersion .Values.luigi.image.tag }}
+        image: {{ .Values.luigi.image.registry | default .Values.global.image.registry }}/{{ include "safeline.luigi.image.repository" . }}:{{ .Values.luigi.image.tag | default .Chart.AppVersion }}        
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         ports:
           - name: luigi

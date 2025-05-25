@@ -167,7 +167,7 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag = "latest" -}}
 {{- end -}}
-{{- printf "%s:%s" $repo $tag -}}
+{{- printf "%s" $repo -}}
 {{- end -}}
 
 {{/* detector */}}
@@ -201,7 +201,7 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag = "latest" -}}
 {{- end -}}
-{{- printf "%s:%s" $repo $tag -}}
+{{- printf "%s" $repo -}}
 {{- end -}}
 
 
@@ -232,7 +232,7 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag = "latest" -}}
 {{- end -}}
-{{- printf "%s:%s" $repo $tag -}}
+{{- printf "%s" $repo -}}
 {{- end -}}
 
 
@@ -259,7 +259,7 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag = "latest" -}}
 {{- end -}}
-{{- printf "%s:%s" $repo $tag -}}
+{{- printf "%s" $repo -}}
 {{- end -}}
 
 
@@ -282,7 +282,7 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag = "latest" -}}
 {{- end -}}
-{{- printf "%s:%s" $repo $tag -}}
+{{- printf "%s" $repo -}}
 {{- end -}}
 
 
@@ -301,7 +301,7 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag = "latest" -}}
 {{- end -}}
-{{- printf "%s:%s" $repo $tag -}}
+{{- printf "%s" $repo -}}
 {{- end -}}
 
 
@@ -324,5 +324,5 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag = "latest" -}}
 {{- end -}}
-{{- printf "%s:%s" $repo $tag -}}
+{{- printf "%s" $repo -}}
 {{- end -}}
