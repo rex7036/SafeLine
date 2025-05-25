@@ -165,11 +165,10 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- $tag := default .Chart.AppVersion .Values.mgt.image.tag -}}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
-  {{- $tag := "latest" -}}
+  {{- $tag = "latest" -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
-
 
 {{/* detector */}}
 {{- define "safeline.detector" -}}
@@ -200,7 +199,7 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- $tag := default .Chart.AppVersion .Values.detector.image.tag -}}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
-  {{- $tag := "latest" -}}
+  {{- $tag = "latest" -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
@@ -231,7 +230,7 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- $tag := default .Chart.AppVersion .Values.tengine.image.tag -}}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
-  {{- $tag := "latest" -}}
+  {{- $tag = "latest" -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
@@ -258,7 +257,7 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- $tag := default .Chart.AppVersion .Values.fvm.image.tag -}}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
-  {{- $tag := "latest" -}}
+  {{- $tag = "latest" -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
@@ -281,10 +280,30 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- $tag := default .Chart.AppVersion .Values.luigi.image.tag -}}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
-  {{- $tag := "latest" -}}
+  {{- $tag = "latest" -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
+
+
+{{/* bridge */}}
+{{- define "safeline.bridge" -}}
+  {{- printf "%s-bridge" (include "safeline.fullname" .) -}}
+{{- end -}}
+
+{{- define "safeline.bridge.image.repository" -}}
+{{- $repo := .Values.bridge.image.repository -}}
+{{- if eq .Values.global.image.arch "arm" -}}
+  {{- $repo = printf "%s-arm" $repo -}}
+{{- end -}}
+{{- $tag := default .Chart.AppVersion .Values.bridge.image.tag -}}
+{{- if eq .Values.global.image.channel "lts" -}}
+  {{- $repo = printf "%s-lts" $repo -}}
+  {{- $tag = "latest" -}}
+{{- end -}}
+{{- printf "%s:%s" $repo $tag -}}
+{{- end -}}
+
 
 {{/* chaos */}}
 {{- define "safeline.chaos" -}}
@@ -303,7 +322,7 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- $tag := default .Chart.AppVersion .Values.chaos.image.tag -}}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
-  {{- $tag := "latest" -}}
+  {{- $tag = "latest" -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
