@@ -166,8 +166,6 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag := "latest" -}}
-{{- else -}}
-  {{- $tag := default .Chart.AppVersion .Values.mgt.image.tag -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
@@ -203,8 +201,6 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag := "latest" -}}
-{{- else -}}
-  {{- $tag := default .Chart.AppVersion .Values.detector.image.tag -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
@@ -236,8 +232,6 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag := "latest" -}}
-{{- else -}}
-  {{- $tag := default .Chart.AppVersion .Values.tengine.image.tag -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
@@ -265,8 +259,6 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag := "latest" -}}
-{{- else -}}
-  {{- $tag := default .Chart.AppVersion .Values.fvm.image.tag -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
@@ -290,8 +282,6 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag := "latest" -}}
-{{- else -}}
-  {{- $tag := default .Chart.AppVersion .Values.luigi.image.tag -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
@@ -311,8 +301,6 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag := "latest" -}}
-{{- else -}}
-  {{- $tag := default .Chart.AppVersion .Values.bridge.image.tag -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
@@ -336,8 +324,6 @@ https://{{ template "safeline.mgt" . }}:{{ template "safeline.mgt.web.port" . }}
 {{- if eq .Values.global.image.channel "lts" -}}
   {{- $repo = printf "%s-lts" $repo -}}
   {{- $tag := "latest" -}}
-{{- else -}}
-  {{- $tag := default .Chart.AppVersion .Values.chaos.image.tag -}}
 {{- end -}}
 {{- printf "%s:%s" $repo $tag -}}
 {{- end -}}
