@@ -100,7 +100,7 @@ database:
     automountServiceAccountToken: false
     image:
       registry: ''
-      repository: postgres
+      repository: safeline-postgres
       tag: 15.2
     password: changeit
     shmSizeLimit: 512Mi
