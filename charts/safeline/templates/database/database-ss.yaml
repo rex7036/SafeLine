@@ -36,7 +36,7 @@ spec:
       terminationGracePeriodSeconds: 120
       containers:
       - name: database
-        image: {{ .Values.database.image.registry | default .Values.global.image.registry }}/{{ include "safeline.database.image.repository" . }}:{{ .Values.database.image.tag | default .Chart.AppVersion }}
+        image: {{ default .Values.global.image.registry .Values.database.internal.image.registry }}/{{ .Values.database.internal.image.repository }}:{{ .Values.database.internal.image.tag }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
 {{- if .Values.database.internal.resources }}
         resources:
