@@ -1,0 +1,32 @@
+{{- $cache := .Values.persistence.persistentVolumeClaim.cache -}}
+{{- if and .Values.persistence.enabled (not $cache.existingClaim) }}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "safeline.cache" . }}
+  annotations:
+  {{- range $key, $value := $cache.annotations }}
+    {{ $key }}: {{ $value | quote }}
+  {{- end }}
+  {{- if eq .Values.persistence.resourcePolicy "keep" }}
+    helm.sh/resource-policy: keep
+  {{- end }}
+  labels:
+{{ include "safeline.labels" . | indent 4 }}
+    component: cache
+spec:
+  accessModes: 
+    - {{ $cache.accessMode }}
+  resources:
+    requests:
+      storage: {{ $cache.size }}
+  {{- if .Values.global.persistence.storageClass }}
+  storageClassName: {{ .Values.global.persistence.storageClass }}
+  {{- else if $cache.storageClass }}
+    {{- if eq "-" $cache.storageClass }}
+  storageClassName: ""
+    {{- else }}
+  storageClassName: {{ $cache.storageClass }}
+    {{- end }}
+  {{- end }}
+{{- end }}
